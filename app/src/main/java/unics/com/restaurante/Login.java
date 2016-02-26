@@ -1,8 +1,10 @@
 package unics.com.restaurante;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,11 +41,16 @@ public class Login extends AppCompatActivity
                 String id = identificacion.getText().toString();
                 String pass = password.getText().toString();
 
-                if (id.equalsIgnoreCase("")||
+                /*if (id.equalsIgnoreCase("")||
                         pass.equalsIgnoreCase(""))
                 {
                     Toast.makeText(Login.this, "Faltan datos por llenar",Toast.LENGTH_SHORT).show();
                 }
+                else
+                {*/
+                    Intent intent = new Intent(Login.this, MenuPrincipal.class);
+                    startActivity(intent);
+                //}
             }
         });
 

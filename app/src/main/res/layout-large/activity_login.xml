@@ -18,42 +18,51 @@
             android:src="@drawable/photo"
             android:layout_gravity="center"/>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/editTextIdentificacion_Login"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                style="@style/textos_editText"
-                android:hint="Identificacion"
-                android:inputType="number"
-                android:background="@drawable/campo_edittext"/>
 
-            <EditText
-                android:id="@+id/editTextContrasena_Login"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                style="@style/textos_editText"
-                android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:background="@drawable/campo_edittext"
-                android:layout_marginTop="10dp"/>
-
-            <Button
-                android:id="@+id/buttonIniciar_Login"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Iniciar Sesion"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/botones"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:orientation="vertical"
+                android:layout_margin="10dp">
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/editTextIdentificacion_Login"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    style="@style/textos_editText"
+                    android:hint="Identificacion"
+                    android:inputType="number"
+                    android:background="@drawable/campo_edittext"
+                    android:drawableLeft="@mipmap/perfil"/>
+
+                <EditText
+                    android:id="@+id/editTextContrasena_Login"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    style="@style/textos_editText"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:background="@drawable/campo_edittext"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@mipmap/contrasena"/>
+
+                <Button
+                    android:id="@+id/buttonIniciar_Login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Iniciar Sesion"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/botones"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
