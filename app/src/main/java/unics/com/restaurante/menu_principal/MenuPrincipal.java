@@ -1,15 +1,17 @@
-package unics.com.restaurante;
+package unics.com.restaurante.menu_principal;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import unics.com.restaurante.R;
+import unics.com.restaurante.categorias.Categorias;
 
 public class MenuPrincipal extends AppCompatActivity implements AdapterView.OnItemClickListener
 {
@@ -22,22 +24,11 @@ public class MenuPrincipal extends AppCompatActivity implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
 
-        gridView = (GridView) findViewById(R.id.grid);
-
-        gridView = (GridView) findViewById(R.id.grid);
+        gridView = (GridView) findViewById(R.id.gridMesas);
         adaptador = new Adapter_MenuPrincipal(this);
         gridView.setAdapter(adaptador);
         gridView.setOnItemClickListener(this);
 
-        //gridView.setAdapter(new Adapter_MenuPrincipal(this));
-
-        //usarToolbar();
-    }
-
-    private void usarToolbar()
-    {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -71,7 +62,10 @@ public class MenuPrincipal extends AppCompatActivity implements AdapterView.OnIt
     {
         Items_MenuPrincipal item = (Items_MenuPrincipal) parent.getItemAtPosition(position);
 
-        Toast.makeText(MenuPrincipal.this, item.getNumMesa(), Toast.LENGTH_SHORT).show();
+        //
+        Intent intent = new Intent(MenuPrincipal.this, Categorias.class);
+        startActivity(intent);
+        //Toast.makeText(MenuPrincipal.this, item.getNumMesa(), Toast.LENGTH_SHORT).show();
 
     }
 }

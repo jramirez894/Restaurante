@@ -1,4 +1,4 @@
-package unics.com.restaurante;
+package unics.com.restaurante.menu_principal;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import unics.com.restaurante.R;
 
 /**
  * Created by jeniffer on 26/02/2016.
@@ -51,6 +53,7 @@ public class Adapter_MenuPrincipal extends BaseAdapter
 
         Items_MenuPrincipal item = (Items_MenuPrincipal) getItem(position);
         imagenMesa.setImageResource(item.getImagenMesa());
+
         nombreMesa.setText(item.getNumMesa());
 
         return view;

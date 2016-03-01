@@ -5,11 +5,11 @@
     android:orientation="vertical">
 
     <GridView
-        android:id="@+id/gridMesas"
+        android:id="@+id/gridCategoria"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:horizontalSpacing="10dp"
-        android:numColumns="3"
+        android:horizontalSpacing="15dp"
+        android:numColumns="2"
         android:padding="5dp"
-        android:verticalSpacing="10dp" />
+        android:verticalSpacing="15dp" />
 </LinearLayout>

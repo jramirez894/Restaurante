@@ -22,8 +22,16 @@
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name=".MenuPrincipal"
+            android:name=".menu_principal.MenuPrincipal"
             android:label="@string/title_activity_menu_principal" >
+        </activity>
+        <activity
+            android:name=".categorias.Categorias"
+            android:label="@string/title_activity_categorias" >
+        </activity>
+        <activity
+            android:name=".productos.Productos"
+            android:label="@string/title_activity_productos" >
         </activity>
     </application>
 
