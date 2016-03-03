@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textNombreProducto_ListaPedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nombreProducto"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/textNotaProducto_ListaPedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="notaProducto"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textCantidadProducto_ListaPedidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cantidad"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/textPrecio_ListaPedidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Precio"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/imageElimniarPedidos_ListaPedidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_delete"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

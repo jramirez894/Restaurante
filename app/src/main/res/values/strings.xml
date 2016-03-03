@@ -7,4 +7,5 @@
     <string name="title_activity_menu_principal">MenuPrincipal</string>
     <string name="title_activity_categorias">Categorias</string>
     <string name="title_activity_productos">Productos</string>
+    <string name="title_activity_pedidos">Pedidos</string>
 </resources>

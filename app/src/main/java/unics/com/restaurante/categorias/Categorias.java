@@ -12,6 +12,7 @@ import android.widget.GridView;
 import unics.com.restaurante.menu_principal.Adapter_MenuPrincipal;
 import unics.com.restaurante.R;
 import unics.com.restaurante.menu_principal.Items_MenuPrincipal;
+import unics.com.restaurante.pedidos.Pedidos;
 import unics.com.restaurante.productos.Productos;
 
 public class Categorias extends AppCompatActivity implements AdapterView.OnItemClickListener
@@ -48,10 +49,12 @@ public class Categorias extends AppCompatActivity implements AdapterView.OnItemC
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
+        switch (item.getItemId())
         {
-            return true;
+            case R.id.botonmisPedidos:
+                Intent intent = new Intent(Categorias.this, Pedidos.class);
+                startActivity(intent);
+                break;
         }
 
         return super.onOptionsItemSelected(item);

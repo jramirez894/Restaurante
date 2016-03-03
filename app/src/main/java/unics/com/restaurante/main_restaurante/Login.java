@@ -1,4 +1,4 @@
-package unics.com.restaurante;
+package unics.com.restaurante.main_restaurante;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import unics.com.restaurante.R;
 import unics.com.restaurante.menu_principal.MenuPrincipal;
 
 public class Login extends AppCompatActivity
@@ -72,9 +73,6 @@ public class Login extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

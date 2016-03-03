@@ -1,5 +1,5 @@
 
-package unics.com.restaurante;
+package unics.com.restaurante.main_restaurante;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -13,6 +13,8 @@ import android.view.animation.AnimationUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import unics.com.restaurante.R;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -89,10 +91,6 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

@@ -1,6 +1,7 @@
 package unics.com.restaurante.menu_principal;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +24,9 @@ public class MenuPrincipal extends AppCompatActivity implements AdapterView.OnIt
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         gridView = (GridView) findViewById(R.id.gridMesas);
         adaptador = new Adapter_MenuPrincipal(this);
@@ -49,10 +53,6 @@ public class MenuPrincipal extends AppCompatActivity implements AdapterView.OnIt
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

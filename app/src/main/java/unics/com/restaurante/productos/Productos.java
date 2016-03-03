@@ -34,6 +34,9 @@ public class Productos extends AppCompatActivity
 
     ArrayList<ItemsDatosProductos> arrayList = new ArrayList<ItemsDatosProductos>();
 
+    int contador = 1;
+    int posicionProducto = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -52,13 +55,13 @@ public class Productos extends AppCompatActivity
         descrpcion = (TextView) findViewById(R.id.txtDescripcionSeleccionada);
 
         arrayList.clear();
-        arrayList.add(new ItemsDatosProductos( R.drawable.a, "Cafe Expres", "30 minutos","$20.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante.  Cada comida del menú suele estar acompañada por una breve descripción de sus ingredientes, además del precio que debemos pagar por ella"));
-        arrayList.add(new ItemsDatosProductos( R.drawable.b, "Cafe Colombiano", "10 minutos","$30.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante.  Cada comida del menú suele estar acompañada por una breve descripción de sus ingredientes, además del precio que debemos pagar por ella"));
-        arrayList.add(new ItemsDatosProductos( R.drawable.c, "Chorizo", "25 minutos","$40.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante.  Cada comida del menú suele estar acompañada por una breve descripción de sus ingredientes, además del precio que debemos pagar por ella"));
-        arrayList.add(new ItemsDatosProductos( R.drawable.d, "Churrasco", "15 minutos","$50.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante.  Cada comida del menú suele estar acompañada por una breve descripción de sus ingredientes, además del precio que debemos pagar por ella"));
-        arrayList.add(new ItemsDatosProductos( R.drawable.e, "Empanada", "5 minutos","$60.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante.  Cada comida del menú suele estar acompañada por una breve descripción de sus ingredientes, además del precio que debemos pagar por ella"));
-        arrayList.add(new ItemsDatosProductos( R.drawable.f, "Helado", "4 minutos","$70.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante.  Cada comida del menú suele estar acompañada por una breve descripción de sus ingredientes, además del precio que debemos pagar por ella"));
-        arrayList.add(new ItemsDatosProductos( R.drawable.g, "Te", "1 minutos","$80.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante.  Cada comida del menú suele estar acompañada por una breve descripción de sus ingredientes, además del precio que debemos pagar por ella"));
+        arrayList.add(new ItemsDatosProductos( R.drawable.a, "Cafe Expres", "30 minutos","$20.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante."));
+        arrayList.add(new ItemsDatosProductos( R.drawable.b, "Cafe Colombiano", "10 minutos","$30.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante."));
+        arrayList.add(new ItemsDatosProductos( R.drawable.c, "Chorizo", "25 minutos","$40.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante."));
+        arrayList.add(new ItemsDatosProductos( R.drawable.d, "Churrasco", "15 minutos","$50.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante."));
+        arrayList.add(new ItemsDatosProductos( R.drawable.e, "Empanada", "5 minutos","$60.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante."));
+        arrayList.add(new ItemsDatosProductos( R.drawable.f, "Helado", "4 minutos","$70.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante."));
+        arrayList.add(new ItemsDatosProductos( R.drawable.g, "Te", "1 minutos","$80.000","Un menú es la lista de las comidas y bebidas que se sirven en un restaurante."));
 
         gallery = (Gallery) findViewById(R.id.galleryProducto);
         gallery.setAdapter(new GalleryAdapter(this, arrayList));
@@ -78,6 +81,8 @@ public class Productos extends AppCompatActivity
             {
                 Bitmap bitmap = BitmapFactory.decodeResource(Productos.this.getResources(),arrayList.get(position).getImagen());
                 imagenSeleccionada.setImageBitmap(bitmap);
+
+                posicionProducto = position;
 
                 nombreProducto.setText(arrayList.get(position).getNombreP());
                 tiempo.setText(arrayList.get(position).getTiempo());
@@ -104,12 +109,48 @@ public class Productos extends AppCompatActivity
         LayoutInflater inflaterAlert = (LayoutInflater) Productos.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialoglayout = inflaterAlert.inflate(R.layout.items_alerta_addproduct, null);
 
-        ImageView imagenProducto = (ImageView)findViewById(R.id.image_producto_Alerta);
-        TextView nombreProducto = (TextView)findViewById(R.id.textNombreProducto_Alerta);
-        TextView descripcionProducto = (TextView)findViewById(R.id.textDescripcionProducto_Alerta);
-        ImageView menosProducto = (ImageView)findViewById(R.id.imageMenos_Alerta);
-        ImageView masProducto = (ImageView)findViewById(R.id.imageMas_Alerta);
-        EditText notaProducto = (EditText)findViewById(R.id.editTextNotas_Alerta);
+        ImageView imagenProducto = (ImageView)dialoglayout.findViewById(R.id.image_producto_Alerta);
+        TextView nombreProducto = (TextView)dialoglayout.findViewById(R.id.textNombreProducto_Alerta);
+        TextView descripcionProducto = (TextView)dialoglayout.findViewById(R.id.textDescripcionProducto_Alerta);
+        final TextView cantidadProducto = (TextView)dialoglayout.findViewById(R.id.textCantidad_Alerta);
+        ImageView menosProducto = (ImageView)dialoglayout.findViewById(R.id.imageMenos_Alerta);
+        ImageView masProducto = (ImageView)dialoglayout.findViewById(R.id.imageMas_Alerta);
+        EditText notaProducto = (EditText)dialoglayout.findViewById(R.id.editTextNotas_Alerta);
+
+        //Bitmap bitmap = BitmapFactory.decodeResource(Productos.this.getResources(),arrayList.get(posicionProducto).getImagen());
+        imagenProducto.setImageBitmap(BitmapUtils.decodeSampledBitmapFromResource(getResources(), arrayList.get(posicionProducto).getImagen(), 200, 200));
+
+        nombreProducto.setText(arrayList.get(posicionProducto).getNombreP());
+        descripcionProducto.setText(arrayList.get(posicionProducto).getDescripcion());
+
+        menosProducto.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String can = cantidadProducto.getText().toString();
+
+                if (can.equalsIgnoreCase("1"))
+                {
+
+                }
+                else
+                {
+                    contador = contador - 1 ;
+                    cantidadProducto.setText(String.valueOf(contador));
+                }
+            }
+        });
+
+        masProducto.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                contador = contador + 1 ;
+                cantidadProducto.setText(String.valueOf(contador));
+            }
+        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialoglayout);
@@ -136,10 +177,6 @@ public class Productos extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
